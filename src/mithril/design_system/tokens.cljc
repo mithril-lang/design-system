@@ -5,7 +5,7 @@
 (def theme-order
   [:dark :light :dracula :nord :one-dark :github-dark :monokai :solarized-dark :gruvbox-dark :tokyo-night :github-light :solarized-light])
 
-(def default-theme {:dark :dark :light :light})
+(def system-theme-for-appearance {:dark :dark :light :light})
 
 (def themes
  {
@@ -416,16 +416,44 @@
    "--font-mono" "\"SF Mono\", \"Fira Code\", \"JetBrains Mono\", Menlo, Consolas, monospace"
    "--font-numeric" "\"Space Grotesk\", var(--font-sans)"})
 
+(def scoped-tokens
+  [{:selector ".onboard-screen"
+    :tokens {"--bg-primary" "#0d0f17"
+             "--bg-secondary" "#141824"
+             "--bg-tertiary" "#1b2030"
+             "--bg-elevated" "#202638"
+             "--bg-hover" "#252c40"
+             "--bg-active" "#2d354c"
+             "--text-primary" "#eef0f6"
+             "--text-secondary" "#adb4ca"
+             "--text-muted" "#7f879d"
+             "--border" "rgba(255, 255, 255, 0.08)"
+             "--border-bright" "rgba(255, 255, 255, 0.14)"
+             "--code-bg" "#10131d"
+             "--selection" "rgba(120, 150, 255, 0.5)"}}
+   {:selector ".app-toggle"
+    :tokens {"--toggle-duration" "350ms"
+             "--toggle-travel" "18px"
+             "--toggle-overshoot" "1px"
+             "--toggle-settle" "0px"
+             "--toggle-track-duration" "0ms"
+             "--toggle-ease" "cubic-bezier(0.34, 1.35, 0.64, 1)"}}])
+
 (defn- declarations [tokens]
-  (str/join "\n" (map (fn [[k v]] (str "  " k ": " v ";")) tokens)))
+  (str/join "\n" (map (fn [[k v]] (str "  " k ": " v ";")) (sort-by key tokens))))
 
 (defn theme-css [theme-id]
-  (let [{:keys [tokens]} (get themes (name theme-id))]
+  (let [theme-id (if (keyword? theme-id) (name theme-id) theme-id)
+        {:keys [tokens]} (get themes theme-id)]
     (when-not tokens (throw (ex-info "unknown design-system theme" {:theme theme-id})))
-    (str "[data-theme=\"" (name theme-id) "\"] {\n" (declarations tokens) "\n}")))
+    (str "[data-theme=\"" theme-id "\"] {\n" (declarations tokens) "\n}")))
+
+(defn scoped-css [{:keys [selector tokens]}]
+  (str selector " {\n" (declarations tokens) "\n}"))
 
 (defn stylesheet []
   (str (str/join "\n\n" (map theme-css theme-order))
        "\n\n:root {\n" (declarations shared-tokens) "\n}"
        "\n\nhtml[data-radius=\"none\"] {\n"
-       "  --radius-sm: 0px;\n  --radius-md: 0px;\n  --radius-lg: 0px;\n  --radius-xl: 0px;\n}"))
+       "  --radius-sm: 0px;\n  --radius-md: 0px;\n  --radius-lg: 0px;\n  --radius-xl: 0px;\n}"
+       "\n\n" (str/join "\n\n" (map scoped-css scoped-tokens))))

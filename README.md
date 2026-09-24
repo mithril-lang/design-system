@@ -16,6 +16,12 @@ Set `data-radius="none"` on the root element to square the four radius tokens. T
 
 The Clojure/ClojureScript source of truth is `src/mithril/design_system/tokens.cljc`. `resources/design-system.css` is the browser-ready distribution. `themes` and `theme-css` expose the palettes and one-theme CSS; `stylesheet` emits the complete stylesheet.
 
+The stylesheet includes the scoped onboarding palette and shared settings-toggle motion tokens. Regenerate the checked-in CSS distribution after token edits with:
+
+```sh
+clj -M -e '(require (quote [mithril.design-system.tokens :as tokens])) (spit "resources/design-system.css" (tokens/stylesheet))'
+```
+
 ## Provenance
 
 The initial palettes are transcribed from [`cloud-kotoba/org-hermesone-hermes-desktop`](https://github.com/cloud-kotoba/org-hermesone-hermes-desktop), `src/renderer/src/assets/main.css` and `src/renderer/src/constants.ts`, at source commit `344659c3bf14922174e8ae355af151eb627aeba3`. The source app is MIT licensed; see [NOTICE.md](NOTICE.md) and [LICENSE](LICENSE).
