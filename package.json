@@ -1,0 +1,13 @@
+{
+  "name": "@mithril/design-system",
+  "version": "0.1.0",
+  "description": "Scoped design tokens and CSS primitives shared by Mithril desktop and web surfaces.",
+  "license": "MIT",
+  "files": [
+    "resources"
+  ],
+  "exports": {
+    "./desktop.css": "./resources/design-system.css",
+    "./web-console.css": "./resources/web-console.css"
+  }
+}
