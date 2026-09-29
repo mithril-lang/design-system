@@ -34,9 +34,9 @@ Install this repository as `@mithril/design-system`, import `@mithril/design-sys
 </div>
 ```
 
-The web scope exposes the semantic variables `--background`, `--foreground`, `--muted`, `--muted-foreground`, `--primary`, `--primary-foreground`, `--border`, `--destructive`, `--success`, and `--radius`. Supported web themes are `dark` and `light`; omitting `data-theme` safely defaults only the scoped shell to dark.
+The web scope is a projection of the Mithril desktop `dark` and `light` palettes: the same `--bg-*`, `--text-*`, and `--accent` tokens, plus semantic aliases (`--background`, `--foreground`, `--muted`, `--muted-foreground`, `--primary`, `--primary-foreground`, `--border`, `--destructive`, `--success`, `--radius`) so existing web utilities follow the desktop. Omitting `data-theme` defaults only the scoped shell to dark. Surfaces are flat: sidebar, cards, fields, tables, notices, and nav items. There is no separate console palette.
 
-The CSS primitives provide visual treatment, not React behavior. Product-owned React components such as navigation, session handling, dialogs, and forms remain in the consuming app. This keeps browser code, accessibility behavior, and APIs versioned with the product while colors and surface treatments stay common.
+The CSS primitives provide visual treatment, not React behavior. Product-owned React components such as navigation, session handling, dialogs, and forms remain in the consuming app. Shared class names are `mithril-console-sidebar`, `mithril-console-nav-item`, `mithril-console-card`, `mithril-console-metric`, `mithril-console-field`, `mithril-console-button`, `mithril-console-button-quiet`, `mithril-console-notice`, `mithril-console-table`, and `mithril-console-badge`.
 
 Regenerate the web distribution with:
 
