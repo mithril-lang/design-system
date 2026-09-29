@@ -416,32 +416,26 @@
    "--font-mono" "\"SF Mono\", \"Fira Code\", \"JetBrains Mono\", Menlo, Consolas, monospace"
    "--font-numeric" "\"Space Grotesk\", var(--font-sans)"})
 
-(def web-console-themes
-  {"dark" {"--background" "#181818"
-           "--foreground" "#f3f3f3"
-           "--muted" "#252525"
-           "--muted-foreground" "#b1b1b1"
-           "--primary" "#9db7f9"
-           "--primary-foreground" "#101010"
-           "--border" "#4b4b4b"
-           "--destructive" "oklch(0.704 0.191 22.216)"
-           "--success" "oklch(0.72 0.15 150)"}
-   "light" {"--background" "#ffffff"
-            "--foreground" "#171717"
-            "--muted" "#f4f4f4"
-            "--muted-foreground" "#626262"
-            "--primary" "#24407d"
-            "--primary-foreground" "#ffffff"
-            "--border" "#dedede"
-            "--destructive" "oklch(0.577 0.245 27.325)"
-            "--success" "oklch(0.6 0.13 150)"}})
+(def web-console-theme-ids ["dark" "light"])
+
+(def web-console-aliases
+  "Semantic names the web app already uses, bound to Mithril desktop tokens."
+  {"--background" "var(--bg-primary)"
+   "--foreground" "var(--text-primary)"
+   "--muted" "var(--bg-tertiary)"
+   "--muted-foreground" "var(--text-muted)"
+   "--primary" "var(--accent)"
+   "--primary-foreground" "var(--user-bubble-text)"
+   "--border" "var(--border-bright)"
+   "--destructive" "var(--error)"})
+
+(defn web-console-theme-tokens [theme-id]
+  (let [{:keys [tokens]} (get themes theme-id)]
+    (when-not tokens (throw (ex-info "unknown web-console theme" {:theme theme-id})))
+    (merge tokens web-console-aliases)))
 
 (def web-console-shared-tokens
-  {"--radius" "0.625rem"
-   "--mithril-shell-glow" "color-mix(in srgb, var(--primary) 12%, transparent)"
-   "--mithril-shell-panel" "color-mix(in srgb, var(--muted) 42%, transparent)"
-   "--mithril-shell-field" "color-mix(in srgb, var(--background) 72%, transparent)"
-   "--mithril-shell-edge" "color-mix(in srgb, var(--border) 72%, transparent)"})
+  (merge shared-tokens {"--radius" "var(--radius-md)"}))
 
 (def scoped-tokens
   [{:selector ".onboard-screen"
@@ -480,8 +474,7 @@
 
 (defn web-console-theme-css [theme-id]
   (let [theme-id (if (keyword? theme-id) (name theme-id) theme-id)
-        tokens (get web-console-themes theme-id)]
-    (when-not tokens (throw (ex-info "unknown web-console theme" {:theme theme-id})))
+        tokens (web-console-theme-tokens theme-id)]
     (str "[data-mithril-design-system=\"web-console\"][data-theme=\"" theme-id "\"]"
          (when (= theme-id "dark")
            ",\n[data-mithril-design-system=\"web-console\"]:not([data-theme])")
@@ -490,35 +483,142 @@
 
 (def web-console-components
   "[data-mithril-design-system=\"web-console\"] {
-  background:
-    radial-gradient(circle at 85% -10%, var(--mithril-shell-glow), transparent 34rem),
-    linear-gradient(180deg, color-mix(in srgb, var(--background) 94%, #10182c), var(--background));
-  color: var(--foreground);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
 }
 
 [data-mithril-design-system=\"web-console\"] .mithril-console-sidebar {
-  border-inline-end: 1px solid color-mix(in srgb, var(--border) 78%, transparent);
-  background: color-mix(in srgb, var(--background) 82%, transparent);
-  box-shadow: inset -1px 0 rgba(255, 255, 255, 0.025), 18px 0 48px rgba(0, 0, 0, 0.08);
-  backdrop-filter: blur(22px) saturate(1.15);
+  background: var(--bg-secondary);
+  border-inline-end: 1px solid var(--border);
+  color: var(--text-secondary);
+  overflow: auto;
 }
 
-[data-mithril-design-system=\"web-console\"] .mithril-console-card {
-  border: 1px solid var(--mithril-shell-edge);
-  background: var(--mithril-shell-panel);
-  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.12), inset 0 1px rgba(255, 255, 255, 0.045);
-  backdrop-filter: blur(18px);
+[data-mithril-design-system=\"web-console\"] .mithril-console-nav-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  color: var(--text-secondary);
+  border-radius: var(--radius-md);
+}
+
+[data-mithril-design-system=\"web-console\"] .mithril-console-nav-item:hover {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+}
+
+[data-mithril-design-system=\"web-console\"] .mithril-console-nav-item[aria-current=\"page\"] {
+  background: var(--accent-subtle);
+  color: var(--accent-text);
+}
+
+[data-mithril-design-system=\"web-console\"] .mithril-console-card,
+[data-mithril-design-system=\"web-console\"] .mithril-console-metric {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: none;
 }
 
 [data-mithril-design-system=\"web-console\"] .mithril-console-field {
-  border: 1px solid color-mix(in srgb, var(--border) 78%, transparent);
-  background: var(--mithril-shell-field);
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.16);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-bright);
+  border-radius: var(--radius-md);
+  box-shadow: none;
+}
+
+[data-mithril-design-system=\"web-console\"] .mithril-console-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: var(--accent);
+  color: var(--user-bubble-text);
+  padding: 0.45rem 0.9rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+[data-mithril-design-system=\"web-console\"] .mithril-console-button:disabled {
+  opacity: 0.5;
+}
+
+[data-mithril-design-system=\"web-console\"] .mithril-console-button-quiet {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-bright);
+  background: transparent;
+  color: var(--text-primary);
+  padding: 0.45rem 0.9rem;
+  font-size: 0.875rem;
+}
+
+[data-mithril-design-system=\"web-console\"] .mithril-console-button-quiet:disabled {
+  opacity: 0.5;
+}
+
+[data-mithril-design-system=\"web-console\"] .mithril-console-notice {
+  border: 1px solid var(--border-bright);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 0.9rem;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+[data-mithril-design-system=\"web-console\"] .mithril-console-notice[data-tone=\"warning\"] {
+  background: var(--warning-bg);
+  color: var(--text-primary);
+}
+
+[data-mithril-design-system=\"web-console\"] .mithril-console-notice[data-tone=\"danger\"] {
+  background: var(--error-bg);
+  color: var(--text-primary);
+}
+
+[data-mithril-design-system=\"web-console\"] .mithril-console-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  text-align: start;
+}
+
+[data-mithril-design-system=\"web-console\"] .mithril-console-table th {
+  color: var(--text-muted);
+  font-weight: 600;
+  text-align: start;
+  padding: 0.55rem 0.7rem;
+  border-bottom: 1px solid var(--border);
+}
+
+[data-mithril-design-system=\"web-console\"] .mithril-console-table td {
+  padding: 0.7rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-primary);
+  vertical-align: top;
+}
+
+[data-mithril-design-system=\"web-console\"] .mithril-console-badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid var(--border-bright);
+  background: var(--accent-subtle);
+  color: var(--accent-text);
+  padding: 0.05rem 0.45rem;
+  font-size: 0.65rem;
+  font-weight: 600;
 }")
 
 (defn web-console-stylesheet []
   (str "/* Generated by mithril.design-system.tokens/web-console-stylesheet. */\n"
-       (str/join "\n\n" (map web-console-theme-css ["dark" "light"]))
+       (str/join "\n\n" (map web-console-theme-css web-console-theme-ids))
        "\n\n[data-mithril-design-system=\"web-console\"] {\n"
        (declarations web-console-shared-tokens) "\n}\n\n"
        web-console-components "\n"))
