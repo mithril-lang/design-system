@@ -1,6 +1,6 @@
 # Mithril Design System
 
-A token package for the desktop design language used by Kotoba Desktop. It provides the existing 12 theme palettes as CSS custom properties, plus shared radius, motion, and typography tokens. It is a token layer; it does not ship UI components.
+A scoped token and CSS-primitives package shared by Mithril desktop and web surfaces. It provides the existing 12 Kotoba Desktop theme palettes plus the Mithril Console shell introduced by the React web app. The package deliberately avoids global element styling so products can migrate one surface at a time.
 
 ## Use the CSS
 
@@ -21,6 +21,30 @@ The stylesheet includes the scoped onboarding palette and shared settings-toggle
 ```sh
 clj -M -e '(require (quote [mithril.design-system.tokens :as tokens])) (spit "resources/design-system.css" (tokens/stylesheet))'
 ```
+
+## Use the React web-console foundation
+
+Install this repository as `@mithril/design-system`, import `@mithril/design-system/web-console.css`, and opt a shell into the scope:
+
+```tsx
+<div data-mithril-design-system="web-console" data-theme="dark">
+  <aside className="mithril-console-sidebar">…</aside>
+  <section className="mithril-console-card">…</section>
+  <input className="mithril-console-field" />
+</div>
+```
+
+The web scope exposes the semantic variables `--background`, `--foreground`, `--muted`, `--muted-foreground`, `--primary`, `--primary-foreground`, `--border`, `--destructive`, `--success`, and `--radius`. Supported web themes are `dark` and `light`; omitting `data-theme` safely defaults only the scoped shell to dark.
+
+The CSS primitives provide visual treatment, not React behavior. Product-owned React components such as navigation, session handling, dialogs, and forms remain in the consuming app. This keeps browser code, accessibility behavior, and APIs versioned with the product while colors and surface treatments stay common.
+
+Regenerate the web distribution with:
+
+```sh
+clj -M -e '(require (quote [mithril.design-system.tokens :as tokens])) (spit "resources/web-console.css" (tokens/web-console-stylesheet))'
+```
+
+Run `clj -M:test` to verify both checked-in CSS distributions still match their Clojure source.
 
 ## Provenance
 
