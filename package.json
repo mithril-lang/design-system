@@ -9,6 +9,7 @@
     "dist/react"
   ],
   "exports": {
+    "./mithril-mark.svg": "./resources/mithril-mark.svg",
     "./desktop.css": "./resources/design-system.css",
     "./web-console.css": "./resources/web-console.css",
     "./react": {
