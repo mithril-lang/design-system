@@ -102,11 +102,9 @@ function PlainCodeView({ code }: { code: string }): React.JSX.Element {
   );
 }
 
-// Source-position ids of code blocks the user has expanded. Kept at module
-// scope so the choice survives the remounts react-markdown causes while a
-// message is still streaming (index-based keys shift as the AST grows, which
-// would otherwise reset a per-component useState back to collapsed).
-
+// Source-position IDs remain stable when react-markdown remounts streamed blocks.
+// The renderer's ExpansionContext retains user choices without sharing them
+// across unrelated replies.
 
 // Code block with syntax highlighting and copy button (lazy-loaded highlighter)
 function CodeBlock({
