@@ -1,13 +1,41 @@
 {
   "name": "@mithril/design-system",
-  "version": "0.1.0",
-  "description": "Scoped design tokens and CSS primitives shared by Mithril desktop and web surfaces.",
+  "version": "0.2.0",
+  "description": "Shared Mithril design tokens and React chat components for Web and Desktop.",
   "license": "MIT",
   "files": [
-    "resources"
+    "resources",
+    "src/react"
   ],
   "exports": {
     "./desktop.css": "./resources/design-system.css",
-    "./web-console.css": "./resources/web-console.css"
-  }
+    "./web-console.css": "./resources/web-console.css",
+    "./react": "./src/react/index.ts"
+  },
+  "peerDependencies": {
+    "react": ">=19 <20",
+    "react-dom": ">=19 <20"
+  },
+  "dependencies": {
+    "lucide-react": "^1.48.0",
+    "react-markdown": "^10.1.0",
+    "react-syntax-highlighter": "^16.1.1",
+    "remark-gfm": "^4.0.1"
+  },
+  "scripts": {
+    "test:react": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@types/react-syntax-highlighter": "^15.5.13",
+    "@testing-library/react": "^16.3.0",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.4",
+    "jsdom": "^26.1.0"
+  },
+  "type": "module"
 }
