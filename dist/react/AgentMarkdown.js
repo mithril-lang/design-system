@@ -58,7 +58,7 @@ function loadHighlighter() {
         return _loadingPromise;
     _loadingPromise = Promise.all([
         import("react-syntax-highlighter"),
-        import("react-syntax-highlighter/dist/esm/styles/prism/one-dark"),
+        import("react-syntax-highlighter/dist/esm/styles/prism/one-dark.js"),
     ]).then(([mod, style]) => {
         _highlighterMod = mod;
         _oneDark = style.default;
