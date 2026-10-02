@@ -1,11 +1,19 @@
 import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { AgentMarkdown as DistributedMarkdown } from "../../dist/react/index.js";
 import { AgentMarkdown, ChatBubble, ChatSubmitButton, ChatTextarea, type MarkdownPlatform } from "./index";
 
 afterEach(cleanup);
 const adapter = (): MarkdownPlatform => ({ copyText: vi.fn(async () => {}), labels: { copy: "Copy code", copied: "Copied", showMore: "Show more", showLess: "Show less" } });
 
 describe("shared chat across platforms", () => {
+  it("loads the distributed renderer's Prism module and keeps box diagrams plain", async () => {
+    const view = render(<DistributedMarkdown platform={adapter()}>{'```ts\nconst answer: number = 42;\n```'}</DistributedMarkdown>);
+    await waitFor(() => expect(view.container.querySelector('.token')).not.toBeNull(), { timeout: 5000 });
+    view.rerender(<DistributedMarkdown platform={adapter()}>{'```text\n├── src\n└── main.ts\n```'}</DistributedMarkdown>);
+    expect(view.container.querySelector('.chat-code-plain')).toBeTruthy();
+    expect(view.container.querySelector('.token')).toBeNull();
+  }, 10000);
   it("routes clipboard and safe navigation through the supplied adapter", async () => {
     const platform = { ...adapter(), openLink: vi.fn() };
     render(<AgentMarkdown platform={platform}>{'[Link](https://mithril.fund)\n\n```diff\n+shared\n```'}</AgentMarkdown>);
