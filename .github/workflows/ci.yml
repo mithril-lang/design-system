@@ -17,6 +17,8 @@ jobs:
       - run: npm ci
       - run: npm run typecheck
       - run: npm run test:react
+      - run: npm run build:react
+      - run: git diff --exit-code -- dist/react
   tokens:
     runs-on: ubuntu-latest
     steps:

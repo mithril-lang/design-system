@@ -10,7 +10,8 @@
       "ES2022",
       "DOM"
     ],
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "noImplicitReturns": true
   },
   "include": [
     "src/react"

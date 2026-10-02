@@ -5,12 +5,16 @@
   "license": "MIT",
   "files": [
     "resources",
-    "src/react"
+    "src/react",
+    "dist/react"
   ],
   "exports": {
     "./desktop.css": "./resources/design-system.css",
     "./web-console.css": "./resources/web-console.css",
-    "./react": "./src/react/index.ts"
+    "./react": {
+      "types": "./dist/react/index.d.ts",
+      "import": "./dist/react/index.js"
+    }
   },
   "peerDependencies": {
     "react": ">=19 <20",
@@ -24,7 +28,8 @@
   },
   "scripts": {
     "test:react": "vitest run",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "build:react": "tsc -p tsconfig.build.json"
   },
   "devDependencies": {
     "@types/react": "^19.2.7",

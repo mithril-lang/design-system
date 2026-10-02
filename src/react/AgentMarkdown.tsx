@@ -145,6 +145,7 @@ function CodeBlock({
       void loadHighlighter().then(() => { if (active) setHighlighterReady(true); }).catch(() => {});
       return () => { active = false; };
     }
+    return undefined;
   }, [boxDiagram, highlighterReady, isDiff]);
 
   function handleCopy(): void {

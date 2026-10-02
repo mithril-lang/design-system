@@ -64,7 +64,9 @@ Web App and Mithril Desktop import the same implementation from
   submission or an explicit native app callback.
 - `ChatBubble`: role/error CSS and a slot for product-owned message content.
 
-The React export contains TypeScript/TSX source for the Vite-based consumers.
+The React export ships compiled ESM JavaScript and TypeScript declarations.
+Source and generated distribution are committed together; no install-time build
+or consumer JSX configuration is required.
 React and React DOM are peer dependencies; install one copy in the application.
 Pin both applications to the same Git commit. Updating this repo does not change
 production until the consumers update their lockfiles, pass CI and publish.
@@ -90,5 +92,5 @@ The consumer's existing chat CSS supplies styling; the Web-only scoped layout CS
 remains with Web. Expansion state belongs to one mounted Markdown renderer,
 preventing one reply from expanding code in another reply.
 
-Run `npm ci`, `npm run typecheck`, and `npm run test:react` for React changes.
+Run `npm ci`, `npm run typecheck`, `npm run test:react` and `npm run build:react` for React changes. Commit the generated `dist/react` with its source.
 Run `clj -M:test` for the existing token and CSS distribution contracts.
