@@ -78,4 +78,17 @@ describe("shared chat across platforms", () => {
     expect(container.querySelector('.chat-bubble-agent.chat-bubble-error')).toBeTruthy();
     expect(screen.getByText('Approval slot')).toBeTruthy();
   });
+  it("cancels the browser default before Stop changes the button to Send", () => {
+    const onSubmit = vi.fn(event => event.preventDefault());
+    let cancelled = false;
+    const props = { sendLabel: 'Send', stopLabel: 'Stop' };
+    const view = render(<form onSubmit={onSubmit} onClick={event => { cancelled = event.defaultPrevented; }}>
+      <ChatSubmitButton {...props} busy onStop={() => {
+        view.rerender(<form onSubmit={onSubmit}><ChatSubmitButton {...props} busy={false} onStop={() => {}} /></form>);
+      }} />
+    </form>);
+    fireEvent.click(screen.getByRole('button', { name: 'Stop' }));
+    expect(cancelled).toBe(true);
+    expect(onSubmit).not.toHaveBeenCalled();
+  });
 });

@@ -16,7 +16,13 @@ export function ChatSubmitButton({ busy, disabled, sendLabel, stopLabel, onSend,
   className = "chat-send-btn", sendIconSize = 18, stopIconSize = 15 }: ChatSubmitButtonProps) {
   const label = busy ? stopLabel : sendLabel;
   return <button type={busy || onSend ? "button" : "submit"} className={className}
-    aria-label={label} title={label} disabled={!busy && disabled} onClick={busy ? onStop : onSend}>
+    aria-label={label} title={label} disabled={!busy && disabled} onClick={event => {
+      // Aborting can render this same node as a submit button before the browser
+      // performs its default action. Cancel that action before changing state.
+      if (busy || onSend) event.preventDefault();
+      if (busy) onStop();
+      else onSend?.();
+    }}>
     {busy ? <Square size={stopIconSize} /> : <ArrowUp size={sendIconSize} />}
   </button>;
 }
