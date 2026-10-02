@@ -9,7 +9,10 @@
     "dist/react"
   ],
   "exports": {
-    "./mithril-mark.svg": "./resources/mithril-mark.svg",
+    "./mithril-mark.svg": {
+      "types": "./resources/mithril-mark.d.ts",
+      "default": "./resources/mithril-mark.svg"
+    },
     "./desktop.css": "./resources/design-system.css",
     "./web-console.css": "./resources/web-console.css",
     "./react": {
