@@ -1,6 +1,6 @@
 {
   "name": "@mithril/design-system",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Shared Mithril design tokens and React chat components for Web and Desktop.",
   "license": "MIT",
   "files": [
@@ -18,7 +18,8 @@
     "./react": {
       "types": "./dist/react/index.d.ts",
       "import": "./dist/react/index.js"
-    }
+    },
+    "./chat.css": "./resources/chat-surface.css"
   },
   "peerDependencies": {
     "react": ">=19 <20",

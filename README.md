@@ -88,9 +88,27 @@ never fetch remote URLs. Links allow only HTTP, HTTPS and mailto. Desktop suppli
 its IPC clipboard, preview navigation and media components; Web uses safe new
 tabs and browser clipboard. Locale labels come from each application's provider.
 No Electron, API, account, billing, disk or session dependencies enter this repo.
-The consumer's existing chat CSS supplies styling; the Web-only scoped layout CSS
-remains with Web. Expansion state belongs to one mounted Markdown renderer,
+Import `@mithril/design-system/chat.css` for the canonical Desktop chat surface.
+Theme tokens and platform-specific controls remain in consumers. Expansion state belongs to one mounted Markdown renderer,
 preventing one reply from expanding code in another reply.
 
 Run `npm ci`, `npm run typecheck`, `npm run test:react` and `npm run build:react` for React changes. Commit the generated `dist/react` with its source.
 Run `clj -M:test` for the existing token and CSS distribution contracts.
+
+## Desktop chat surface
+
+Desktop and Web consume `ChatSurface`, `ChatTabs`, `ChatComposer`,
+`ToolActivity`, `ChatWelcome`, and `WorkspaceNavigation` from the same compiled
+React export. The shared CSS is extracted from Desktop, rather than duplicating
+the screen markup and visual rules in Web. `ChatBubble` also uses that CSS.
+
+Composer slots preserve Desktop attachment, voice, model, context, and border
+beam controls. Web supplies account, cloud runtime, permissions, and usage
+controls. Tabs accept explicit selection and close adapters; closing is a host
+operation, never an implicit deletion or inference request. Tool receipt content
+stays mounted behind the shared accessible disclosure.
+
+Transport, session ownership, consent, billing, file access, and Electron IPC
+remain adapter-owned. Component sharing does not imply native tool availability
+in the browser. `surface.test.tsx` tests the distributed package's keyboard, IME,
+stop, tab, disclosure, and explicit-action contracts.
