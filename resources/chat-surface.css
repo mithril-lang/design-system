@@ -1,0 +1,496 @@
+/* Canonical visual surface extracted from Mithril Desktop. Consumers supply theme tokens and platform slots. */
+.active-sessions-bar {
+  display: flex;
+  /* Tabs stretch to the full strip height so the active tab's fill reaches the
+     bottom edge and merges seamlessly into the content below. */
+  align-items: stretch;
+  gap: 0;
+  /* This strip IS the window's title-bar drag region (browser-style): empty
+     space drags the window. It sits above the global .drag-region (z 1000) so
+     it owns the top band of the content column; the chips opt back out of
+     dragging (no-drag) so they stay clickable. Always present — with no extra
+     tabs it's simply an empty drag area, costing no dedicated bar height. */
+  position: relative;
+  z-index: 1001;
+  min-height: 34px;
+  padding: 0 8px 0 12px;
+  overflow-x: auto;
+  /* Darker toolbar shade so the lighter active tab (--bg-primary) reads as
+     part of the page below it. */
+  background: var(--bg-secondary);
+  flex-shrink: 0;
+  /* Scrollable but with no visible scrollbar. */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.active-sessions-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.active-session-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 160px;
+  flex-shrink: 0;
+  /* Opt out of the strip's drag region so the chip is clickable. */
+  position: relative;
+  padding: 0 12px;
+  border: none;
+  border-radius: 8px 8px 0 0;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  white-space: nowrap;
+  transition:
+    background var(--transition),
+    color var(--transition);
+}
+
+.active-session-chip + .active-session-chip::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 16px;
+  background: var(--border-bright);
+}
+
+.active-session-chip:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.active-session-chip.active {
+  /* Same colour as the content area below → the tab merges into the page. */
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.active-session-chip.active::before,
+.active-session-chip.active + .active-session-chip::before {
+  opacity: 0;
+}
+
+.active-session-chip-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  line-height: 1;
+}
+
+.active-session-chip-orb {
+  background: none;
+}
+
+.active-session-chip-title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  opacity: 0.7;
+}
+
+.active-session-chip.active .active-session-chip-title,
+.active-session-chip:hover .active-session-chip-title {
+  opacity: 1;
+}
+
+.active-session-chip-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  /* Revealed on hover / for the active tab to keep idle chips clean. */
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.active-session-chip:hover .active-session-chip-close,
+.active-session-chip.active .active-session-chip-close,
+.active-session-chip-close:focus-visible {
+  opacity: 0.7;
+}
+
+.active-session-chip-close:hover {
+  opacity: 1;
+  background: var(--bg-elevated);
+}
+
+.active-session-new {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  margin-left: 4px;
+  margin-top: 4px;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  background: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition:
+    background var(--transition),
+    color var(--transition);
+}
+
+.active-session-new:hover {
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+}
+
+.chat-empty {
+  /* The scroll container is block flow now (see .chat-messages), so `flex: 1`
+     no longer stretches this to fill the height. `min-height: 100%` makes it
+     fill the container so its own flex centering still works. */
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  animation: chatEmptyFadeIn 0.5s ease-out;
+}
+
+.chat-empty-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.chat-empty-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+}
+
+.chat-empty-text {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.chat-empty-hint {
+  font-size: 14px;
+  color: var(--text-muted);
+  max-width: 360px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.chat-empty-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  max-width: 480px;
+}
+
+.chat-suggestion {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  /* Quiet fill, not an outlined pill: a hairline ring (inset) and native
+     rounded-rect radius read as a desktop control rather than a web chip. */
+  border-radius: var(--radius-md);
+  border: none;
+  background: color-mix(in srgb, var(--bg-secondary) 70%, transparent);
+  box-shadow: inset 0 0 0 1px var(--border);
+  color: var(--text-secondary);
+  font-size: 13px;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.chat-suggestion svg {
+  flex-shrink: 0;
+}
+
+.chat-suggestion:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  box-shadow: inset 0 0 0 1px var(--border-bright);
+}
+
+.chat-input-shell {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+}
+
+.chat-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-bright);
+  border-radius: var(--radius-lg);
+  padding: 10px 10px 8px;
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition);
+}
+
+.chat-input-shell > .chat-input-beam {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  pointer-events: none;
+  transition: box-shadow var(--transition);
+}
+
+.chat-input-shell:focus-within > .chat-input-beam {
+  box-shadow: 0 0 0 3px var(--accent-subtle);
+}
+
+.chat-input-wrapper:focus-within {
+  /* Soft accent glow on focus instead of a saturated electric-blue stroke. */
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--border-bright));
+  box-shadow: none;
+}
+
+.chat-input-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.chat-input-toolbar-spacer {
+  flex: 1;
+}
+
+.chat-input-toolbar-divider {
+  width: 1px;
+  align-self: stretch;
+  margin: 4px 4px;
+  background: var(--border-bright);
+}
+
+.chat-input::placeholder {
+  color: var(--text-muted);
+}
+
+.chat-send-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+  flex-shrink: 0;
+}
+
+.chat-send-btn:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.chat-send-btn:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+.chat-stop-btn {
+  background: var(--error);
+}
+
+.chat-stop-btn:hover {
+  background: #dc2626;
+}
+
+.chat-tool-group {
+  width: 100%;
+}
+
+.chat-tool-group-summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding: 4px 6px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  /* Normal state: dim. Brightens on hover (see below). */
+  color: var(--text-muted);
+}
+
+.chat-tool-group-summary:hover,
+.chat-tool-group-summary:focus-visible {
+  color: var(--text-primary);
+}
+
+.chat-tool-group-chevron {
+  flex-shrink: 0;
+  color: var(--text-muted);
+  opacity: 0;
+  transition:
+    opacity 0.15s ease,
+    transform 0.18s ease;
+}
+
+.chat-tool-group-summary:hover .chat-tool-group-chevron,
+.chat-tool-group-summary:focus-visible .chat-tool-group-chevron {
+  opacity: 1;
+}
+
+.chat-tool-group-chevron--open {
+  opacity: 1;
+  transform: rotate(90deg);
+}
+
+.chat-tool-group-icon {
+  flex-shrink: 0;
+  color: var(--text-muted);
+}
+
+.chat-tool-group-summary:hover .chat-tool-group-icon {
+  color: var(--text-secondary);
+}
+
+.chat-tool-group-spinner {
+  flex-shrink: 0;
+  display: inline-flex;
+}
+
+.chat-tool-group-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: inherit;
+  flex-shrink: 0;
+}
+
+.chat-tool-group-detail {
+  font-size: 12px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* Size to content (capped) so it doesn't stretch and shove the chevron to
+     the far edge — the chevron stays beside the title cluster. */
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 340px;
+}
+
+.chat-tool-collapse {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.22s ease;
+}
+
+.chat-tool-collapse--open {
+  grid-template-rows: 1fr;
+}
+
+.chat-tool-collapse-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.chat-tool-group-items {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border, rgba(127, 127, 127, 0.12));
+}
+
+.mithril-chat-surface {display:flex; flex-direction:column; min-height:0; min-width:0; height:100%;}
+.mithril-chat-tabs {min-width:0; overflow:visible; z-index:10; min-height:40px;}
+.mithril-chat-tablist {display:flex; align-items:stretch; overflow-x:auto; scrollbar-width:none; min-width:0; flex:1;}
+.mithril-chat-tab-select {display:flex; align-items:center; gap:6px; flex:1; min-width:0; padding:0; border:0; color:inherit; background:none; font:inherit; cursor:pointer; min-height:34px;}
+.mithril-chat-tabs .active-session-chip {max-width:220px; min-width:120px;}
+.mithril-chat-tabs button { -webkit-app-region:no-drag; }
+.mithril-composer .chat-input {width:100%; background:none; border:0; box-shadow:none; color:var(--text-primary); font:inherit; font-size:14px; padding:4px 6px; outline:none; resize:none; min-height:38px; max-height:160px; line-height:1.5; box-sizing:border-box;}
+.mithril-composer .chat-input-toolbar {flex-wrap:wrap; min-height:32px;}
+.mithril-composer .chat-input-toolbar-spacer {min-width:0;}
+.mithril-composer .chat-send-btn {flex-shrink:0; margin-left:auto;}
+.mithril-chat-welcome {min-height:280px; flex:1; padding:24px; box-sizing:border-box;}
+.mithril-chat-welcome h1,.mithril-chat-welcome p {margin:0;}
+.mithril-workspace-navigation {display:flex; flex-direction:column; gap:4px;}
+.mithril-workspace-navigation .sidebar-nav-item {display:flex; align-items:center; gap:10px; width:100%; min-height:36px; padding:8px 12px; border:0; border-radius:8px; background:none; color:var(--text-secondary); font:inherit; cursor:pointer;}
+.mithril-workspace-navigation .sidebar-nav-item:hover {background:var(--bg-hover); color:var(--text-primary);}
+.mithril-workspace-navigation .sidebar-nav-item.active {background:var(--accent-subtle); color:var(--text-primary);}
+.mithril-workspace-navigation svg {flex-shrink:0;}
+.mithril-tool-activity .chat-tool-group-summary {width:100%; text-align:left;}
+.mithril-tool-activity .chat-tool-group-items[hidden] {display:none;}
+.mithril-tool-spinner {animation:mithrilToolSpin 1s linear infinite;}
+@keyframes mithrilToolSpin {to {transform:rotate(360deg);}}
+@media (prefers-reduced-motion:reduce) {.mithril-tool-spinner {animation:none;} .mithril-chat-welcome {animation:none;}}
+@media (max-width:600px) {.mithril-composer .chat-input-toolbar {gap:6px;} .mithril-chat-welcome {padding:16px;}}
+
+/* Desktop message bubble styling, used by the same ChatBubble in both hosts. */
+.chat-bubble {
+  position: relative;
+  padding: 10px 16px;
+  border-radius: var(--radius-lg);
+  font-size: 14px;
+  line-height: 1.65;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.chat-bubble-user {
+  background: var(--user-bubble);
+  color: var(--user-bubble-text);
+  border-bottom-right-radius: 4px;
+}
+
+.chat-bubble-agent {
+  background: var(--agent-bubble);
+  color: var(--agent-bubble-text);
+  border-bottom-left-radius: 4px;
+  /* Agent messages are rendered markdown HTML — preserve structure
+     via the elements themselves, not literal whitespace. Overrides
+     .chat-bubble's pre-wrap, which would otherwise turn newlines
+     between <li> tags into visible blank lines. */
+  white-space: normal;
+}
+
+.chat-bubble-error {
+  border: 1px solid color-mix(in srgb, var(--error) 35%, transparent);
+  background: var(--error-bg);
+}
