@@ -1,6 +1,8 @@
 # Mithril Design System
 
-A scoped token and CSS-primitives package shared by Mithril desktop and web surfaces. It provides the existing 12 Kotoba Desktop theme palettes plus the Mithril Console shell introduced by the React web app. The package deliberately avoids global element styling so products can migrate one surface at a time.
+A scoped token and CSS-primitives package for Mithril (mithril.fund) desktop and web surfaces. **Live Mithril brand is independent of kotoba product chrome.** Lockup, accent (`#003f7a`), and surface rules are in [BRANDING.md](BRANDING.md) and the public guide [docs/brand-guide.md](docs/brand-guide.md).
+
+The package ships the Mithril Console shell and twelve historical editor palettes. It deliberately avoids global element styling so products can migrate one surface at a time. Optional `data-theme` editor skins are not the Mithril product accent. License history stays in [NOTICE.md](NOTICE.md).
 
 ## Use the CSS
 
@@ -49,6 +51,8 @@ Run `clj -M:test` to verify both checked-in CSS distributions still match their 
 ## Provenance
 
 The initial palettes are transcribed from [`cloud-kotoba/org-hermesone-hermes-desktop`](https://github.com/cloud-kotoba/org-hermesone-hermes-desktop), `src/renderer/src/assets/main.css` and `src/renderer/src/constants.ts`, at source commit `344659c3bf14922174e8ae355af151eb627aeba3`. The source app is MIT licensed; see [NOTICE.md](NOTICE.md) and [LICENSE](LICENSE).
+
+That record is license history. As of the 2026-10-07 decision, mithril.fund is operated separately from kotoba: live Mithril brand (logo lockup, `#003f7a` accent, surface chrome) does not follow kotoba product chrome. Canonical rules: [BRANDING.md](BRANDING.md) and [docs/brand-guide.md](docs/brand-guide.md). Corporate entity remains Kotoba Labs Inc.
 
 ## Shared React chat components
 
