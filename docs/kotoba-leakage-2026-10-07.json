@@ -1,0 +1,365 @@
+[
+  {
+    "host": "https://mithril.fund/",
+    "html_matches": null,
+    "asset_hits": [
+      {
+        "asset": "https://mithril.fund/assets/index-Bu8H_7WK.js",
+        "matches": {
+          "kotoba\\.cloud": {
+            "count": 8,
+            "snippets": [
+              "support:`support@mithril.fund`},schema:`kotoba.cloud/grc-program-v1`,measuredAt:`2026-09-25`,counts:{catalog:17,",
+              "ttps://mithril.fund/privacy and https://kotoba.cloud/privacy -> 404; the mithril.fund landing page links /legal/",
+              "6-09-25: GET /terms on mithril.fund and kotoba.cloud -> 404; an acceptable-use page exists (console.mithril.fund",
+              "-known/security.txt on mithril.fund and kotoba.cloud -> 404; rendered from :security-txt and served by the app-k",
+              "rocessor-list\":`2026-09-25: GET https://kotoba.cloud/subprocessors -> 404`,dpa:`2026-09-25: GET https://kotoba.c"
+            ]
+          },
+          "app-kotoba-cloud": {
+            "count": 11,
+            "snippets": [
+              "ba-cloud-control-plane\\`（\\`cloud-kotoba/app-kotoba-cloud\\`）と Worker \\`mithril-fund\\`（\\`cloud-kotoba/app-mithril\\`）の ",
+              "l` を残す決定は履歴であり、現在の作業先ではない。`cloud-kotoba/app-kotoba-cloud` は今回の削除対象に含めていない。確認と復元用記録: [retirement report](../ops/archi",
+              "otoba/app-mithril`、移転済み）と `cloud-kotoba/app-kotoba-cloud` は archive しない。いずれ active に戻す前提で残す。新規 feature の prefer 先は `",
+              " - 意図的に GitHub org `cloud-kotoba` に残す: `app-kotoba-cloud`（live CLJK 制御面）。archive せず、ローカルでは並べて参照・移植元にする（ADR 0005 / AD",
+              " 0001 ほか）。 - 旧 CLJK 制御面は \\`cloud-kotoba/app-kotoba-cloud\\`（および関連 Worker）で **本番稼働中**。 - \\`app-mithril\\` は既に \\`mithril"
+            ]
+          },
+          "itonami": {
+            "count": 1,
+            "snippets": [
+              "n the same IP cluster.`,ja:`源データ: cloud-itonami/yabai の調査記録（content/entity・content/evidence・content/post）。掲"
+            ]
+          },
+          "kc_pat_": {
+            "count": 1,
+            "snippets": [
+              "VATE KEY-----|\\b(?:mf_[A-Za-z0-9_-]{43}|kc_pat_[A-Za-z0-9_-]+|sk-[A-Za-z0-9_-]{16,})\\b|\\bBearer\\s+[A-Za-z0-"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "host": "https://docs.mithril.fund/",
+    "html_matches": null,
+    "asset_hits": [
+      {
+        "asset": "https://docs.mithril.fund/assets/index-tN4U6CIT.js",
+        "matches": {
+          "kotoba\\.cloud": {
+            "count": 52,
+            "snippets": [
+              "مان.\",\"Handle must look like com-<name>.kotoba.cloud.\":\"يجب أن يكون المُعرِّف بالصيغة com-<name>.kotoba.cloud.\",",
+              "جب أن يكون المُعرِّف بالصيغة com-<name>.kotoba.cloud.\",\"How verification works\":\"كيف يعمل التحقق\",\"Identity oper",
+              "مان.\",\"Handle must look like com-<name>.kotoba.cloud.\":\"الهاندل خاصو يكون بشكل com-<name>.kotoba.cloud.\",\"How ve",
+              "ud.\":\"الهاندل خاصو يكون بشكل com-<name>.kotoba.cloud.\",\"How verification works\":\"كيفاش كيخدم التحقق\",\"Identity o",
+              "\\\\\".\",\"Handle must look like com-<name>.kotoba.cloud.\":\"الـ Handle لازم يكون بالشكل com-<name>.kotoba.cloud.\",\"H"
+            ]
+          },
+          "app-kotoba-cloud": {
+            "count": 11,
+            "snippets": [
+              "ba-cloud-control-plane\\`（\\`cloud-kotoba/app-kotoba-cloud\\`）と Worker \\`mithril-fund\\`（\\`cloud-kotoba/app-mithril\\`）の ",
+              "otoba/app-mithril`、移転済み）と `cloud-kotoba/app-kotoba-cloud` は archive しない。いずれ active に戻す前提で残す。新規 feature の prefer 先は `",
+              " - 意図的に GitHub org `cloud-kotoba` に残す: `app-kotoba-cloud`（live CLJK 制御面）。archive せず、ローカルでは並べて参照・移植元にする（ADR 0005 / AD",
+              " 0001 ほか）。 - 旧 CLJK 制御面は \\`cloud-kotoba/app-kotoba-cloud\\`（および関連 Worker）で **本番稼働中**。 - \\`app-mithril\\` は既に \\`mithril",
+              "soft-archive のみ**      - \\`cloud-kotoba/app-kotoba-cloud\\` および稼働中の CLJK / Worker は **削除・archive flag・配信停止しない**。     "
+            ]
+          },
+          "itonami": {
+            "count": 3,
+            "snippets": [
+              "s://api.mithril.fund/v1/models`}]},{id:`itonami-bots`,name:`Itonami Bots`,kind:`status`,description:{en:`Op",
+              "/v1/models`}]},{id:`itonami-bots`,name:`Itonami Bots`,kind:`status`,description:{en:`Operations status for ",
+              "n the same IP cluster.`,ja:`源データ: cloud-itonami/yabai の調査記録（content/entity・content/evidence・content/post）。掲"
+            ]
+          },
+          "com-<name>\\.kotoba": {
+            "count": 33,
+            "snippets": [
+              "ن ضوابط الأمان.\",\"Handle must look like com-<name>.kotoba.cloud.\":\"يجب أن يكون المُعرِّف بالصيغة com-<name>.kotoba.cl",
+              ".cloud.\":\"يجب أن يكون المُعرِّف بالصيغة com-<name>.kotoba.cloud.\",\"How verification works\":\"كيف يعمل التحقق\",\"Identit",
+              "ت ضوابط الأمان.\",\"Handle must look like com-<name>.kotoba.cloud.\":\"الهاندل خاصو يكون بشكل com-<name>.kotoba.cloud.\",\"",
+              ".kotoba.cloud.\":\"الهاندل خاصو يكون بشكل com-<name>.kotoba.cloud.\",\"How verification works\":\"كيفاش كيخدم التحقق\",\"Iden",
+              "وابط الأمان\\\\\".\",\"Handle must look like com-<name>.kotoba.cloud.\":\"الـ Handle لازم يكون بالشكل com-<name>.kotoba.clou"
+            ]
+          },
+          "kc_pat_": {
+            "count": 40,
+            "snippets": [
+              "pi.mithril.fund/v1 and KOTOBA_API_TOKEN=kc_pat_… (token shown once after issue).\":\"للعملاء المتوافقين مع Op",
+              "/api.mithril.fund/v1 و KOTOBA_API_TOKEN=kc_pat_… (يُعرض الرمز مرة واحدة فقط بعد الإصدار).\",\"Free allowance\"",
+              "pi.mithril.fund/v1 and KOTOBA_API_TOKEN=kc_pat_… (token shown once after issue).\":\"للعملاء المتوافقين مع Op",
+              "/api.mithril.fund/v1 و KOTOBA_API_TOKEN=kc_pat_… (التوكن كيبان مرة وحدة بعد الإصدار).\",\"Free allowance\":\"ال",
+              "pi.mithril.fund/v1 and KOTOBA_API_TOKEN=kc_pat_… (token shown once after issue).\":\"للعملاء المتوافقين مع Op"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "host": "https://blog.mithril.fund/",
+    "html_matches": null,
+    "asset_hits": [
+      {
+        "asset": "https://blog.mithril.fund/assets/index-BQbML-Mo.js",
+        "matches": {
+          "kotoba\\.cloud": {
+            "count": 8,
+            "snippets": [
+              "support:`support@mithril.fund`},schema:`kotoba.cloud/grc-program-v1`,measuredAt:`2026-09-25`,counts:{catalog:17,",
+              "ttps://mithril.fund/privacy and https://kotoba.cloud/privacy -> 404; the mithril.fund landing page links /legal/",
+              "6-09-25: GET /terms on mithril.fund and kotoba.cloud -> 404; an acceptable-use page exists (console.mithril.fund",
+              "-known/security.txt on mithril.fund and kotoba.cloud -> 404; rendered from :security-txt and served by the app-k",
+              "rocessor-list\":`2026-09-25: GET https://kotoba.cloud/subprocessors -> 404`,dpa:`2026-09-25: GET https://kotoba.c"
+            ]
+          },
+          "app-kotoba-cloud": {
+            "count": 11,
+            "snippets": [
+              "ba-cloud-control-plane\\`（\\`cloud-kotoba/app-kotoba-cloud\\`）と Worker \\`mithril-fund\\`（\\`cloud-kotoba/app-mithril\\`）の ",
+              "l` を残す決定は履歴であり、現在の作業先ではない。`cloud-kotoba/app-kotoba-cloud` は今回の削除対象に含めていない。確認と復元用記録: [retirement report](../ops/archi",
+              "otoba/app-mithril`、移転済み）と `cloud-kotoba/app-kotoba-cloud` は archive しない。いずれ active に戻す前提で残す。新規 feature の prefer 先は `",
+              " - 意図的に GitHub org `cloud-kotoba` に残す: `app-kotoba-cloud`（live CLJK 制御面）。archive せず、ローカルでは並べて参照・移植元にする（ADR 0005 / AD",
+              " 0001 ほか）。 - 旧 CLJK 制御面は \\`cloud-kotoba/app-kotoba-cloud\\`（および関連 Worker）で **本番稼働中**。 - \\`app-mithril\\` は既に \\`mithril"
+            ]
+          },
+          "itonami": {
+            "count": 1,
+            "snippets": [
+              "n the same IP cluster.`,ja:`源データ: cloud-itonami/yabai の調査記録（content/entity・content/evidence・content/post）。掲"
+            ]
+          },
+          "kc_pat_": {
+            "count": 1,
+            "snippets": [
+              "VATE KEY-----|\\b(?:mf_[A-Za-z0-9_-]{43}|kc_pat_[A-Za-z0-9_-]+|sk-[A-Za-z0-9_-]{16,})\\b|\\bBearer\\s+[A-Za-z0-"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "host": "https://support.mithril.fund/",
+    "html_matches": null,
+    "asset_hits": [
+      {
+        "asset": "https://support.mithril.fund/assets/index-Dx_F4S1Y.js",
+        "matches": {
+          "kotoba\\.cloud": {
+            "count": 52,
+            "snippets": [
+              "مان.\",\"Handle must look like com-<name>.kotoba.cloud.\":\"يجب أن يكون المُعرِّف بالصيغة com-<name>.kotoba.cloud.\",",
+              "جب أن يكون المُعرِّف بالصيغة com-<name>.kotoba.cloud.\",\"How verification works\":\"كيف يعمل التحقق\",\"Identity oper",
+              "مان.\",\"Handle must look like com-<name>.kotoba.cloud.\":\"الهاندل خاصو يكون بشكل com-<name>.kotoba.cloud.\",\"How ve",
+              "ud.\":\"الهاندل خاصو يكون بشكل com-<name>.kotoba.cloud.\",\"How verification works\":\"كيفاش كيخدم التحقق\",\"Identity o",
+              "\\\\\".\",\"Handle must look like com-<name>.kotoba.cloud.\":\"الـ Handle لازم يكون بالشكل com-<name>.kotoba.cloud.\",\"H"
+            ]
+          },
+          "app-kotoba-cloud": {
+            "count": 11,
+            "snippets": [
+              "ba-cloud-control-plane\\`（\\`cloud-kotoba/app-kotoba-cloud\\`）と Worker \\`mithril-fund\\`（\\`cloud-kotoba/app-mithril\\`）の ",
+              "otoba/app-mithril`、移転済み）と `cloud-kotoba/app-kotoba-cloud` は archive しない。いずれ active に戻す前提で残す。新規 feature の prefer 先は `",
+              " - 意図的に GitHub org `cloud-kotoba` に残す: `app-kotoba-cloud`（live CLJK 制御面）。archive せず、ローカルでは並べて参照・移植元にする（ADR 0005 / AD",
+              " 0001 ほか）。 - 旧 CLJK 制御面は \\`cloud-kotoba/app-kotoba-cloud\\`（および関連 Worker）で **本番稼働中**。 - \\`app-mithril\\` は既に \\`mithril",
+              "soft-archive のみ**      - \\`cloud-kotoba/app-kotoba-cloud\\` および稼働中の CLJK / Worker は **削除・archive flag・配信停止しない**。     "
+            ]
+          },
+          "itonami": {
+            "count": 3,
+            "snippets": [
+              "s://api.mithril.fund/v1/models`}]},{id:`itonami-bots`,name:`Itonami Bots`,kind:`status`,description:{en:`Op",
+              "/v1/models`}]},{id:`itonami-bots`,name:`Itonami Bots`,kind:`status`,description:{en:`Operations status for ",
+              "n the same IP cluster.`,ja:`源データ: cloud-itonami/yabai の調査記録（content/entity・content/evidence・content/post）。掲"
+            ]
+          },
+          "com-<name>\\.kotoba": {
+            "count": 33,
+            "snippets": [
+              "ن ضوابط الأمان.\",\"Handle must look like com-<name>.kotoba.cloud.\":\"يجب أن يكون المُعرِّف بالصيغة com-<name>.kotoba.cl",
+              ".cloud.\":\"يجب أن يكون المُعرِّف بالصيغة com-<name>.kotoba.cloud.\",\"How verification works\":\"كيف يعمل التحقق\",\"Identit",
+              "ت ضوابط الأمان.\",\"Handle must look like com-<name>.kotoba.cloud.\":\"الهاندل خاصو يكون بشكل com-<name>.kotoba.cloud.\",\"",
+              ".kotoba.cloud.\":\"الهاندل خاصو يكون بشكل com-<name>.kotoba.cloud.\",\"How verification works\":\"كيفاش كيخدم التحقق\",\"Iden",
+              "وابط الأمان\\\\\".\",\"Handle must look like com-<name>.kotoba.cloud.\":\"الـ Handle لازم يكون بالشكل com-<name>.kotoba.clou"
+            ]
+          },
+          "kc_pat_": {
+            "count": 40,
+            "snippets": [
+              "pi.mithril.fund/v1 and KOTOBA_API_TOKEN=kc_pat_… (token shown once after issue).\":\"للعملاء المتوافقين مع Op",
+              "/api.mithril.fund/v1 و KOTOBA_API_TOKEN=kc_pat_… (يُعرض الرمز مرة واحدة فقط بعد الإصدار).\",\"Free allowance\"",
+              "pi.mithril.fund/v1 and KOTOBA_API_TOKEN=kc_pat_… (token shown once after issue).\":\"للعملاء المتوافقين مع Op",
+              "/api.mithril.fund/v1 و KOTOBA_API_TOKEN=kc_pat_… (التوكن كيبان مرة وحدة بعد الإصدار).\",\"Free allowance\":\"ال",
+              "pi.mithril.fund/v1 and KOTOBA_API_TOKEN=kc_pat_… (token shown once after issue).\":\"للعملاء المتوافقين مع Op"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "host": "https://graph.mithril.fund/",
+    "html_matches": null,
+    "asset_hits": [
+      {
+        "asset": "https://graph.mithril.fund/assets/index-BWObb9j3.js",
+        "matches": {
+          "kotoba\\.cloud": {
+            "count": 51,
+            "snippets": [
+              "مان.\",\"Handle must look like com-<name>.kotoba.cloud.\":\"يجب أن يكون المُعرِّف بالصيغة com-<name>.kotoba.cloud.\",",
+              "جب أن يكون المُعرِّف بالصيغة com-<name>.kotoba.cloud.\",\"How verification works\":\"كيف يعمل التحقق\",\"Identity oper",
+              "مان.\",\"Handle must look like com-<name>.kotoba.cloud.\":\"الهاندل خاصو يكون بشكل com-<name>.kotoba.cloud.\",\"How ve",
+              "ud.\":\"الهاندل خاصو يكون بشكل com-<name>.kotoba.cloud.\",\"How verification works\":\"كيفاش كيخدم التحقق\",\"Identity o",
+              "\\\\\".\",\"Handle must look like com-<name>.kotoba.cloud.\":\"الـ Handle لازم يكون بالشكل com-<name>.kotoba.cloud.\",\"H"
+            ]
+          },
+          "app-kotoba-cloud": {
+            "count": 10,
+            "snippets": [
+              "ba-cloud-control-plane\\`（\\`cloud-kotoba/app-kotoba-cloud\\`）と Worker \\`mithril-fund\\`（\\`cloud-kotoba/app-mithril\\`）の ",
+              "otoba/app-mithril`、移転済み）と `cloud-kotoba/app-kotoba-cloud` は archive しない。いずれ active に戻す前提で残す。新規 feature の prefer 先は `",
+              " - 意図的に GitHub org `cloud-kotoba` に残す: `app-kotoba-cloud`（live CLJK 制御面）。archive せず、ローカルでは並べて参照・移植元にする（ADR 0005 / AD",
+              " 0001 ほか）。 - 旧 CLJK 制御面は \\`cloud-kotoba/app-kotoba-cloud\\`（および関連 Worker）で **本番稼働中**。 - \\`app-mithril\\` は既に \\`mithril",
+              "soft-archive のみ**      - \\`cloud-kotoba/app-kotoba-cloud\\` および稼働中の CLJK / Worker は **削除・archive flag・配信停止しない**。     "
+            ]
+          },
+          "itonami": {
+            "count": 1,
+            "snippets": [
+              "n the same IP cluster.`,ja:`源データ: cloud-itonami/yabai の調査記録（content/entity・content/evidence・content/post）。掲"
+            ]
+          },
+          "com-<name>\\.kotoba": {
+            "count": 33,
+            "snippets": [
+              "ن ضوابط الأمان.\",\"Handle must look like com-<name>.kotoba.cloud.\":\"يجب أن يكون المُعرِّف بالصيغة com-<name>.kotoba.cl",
+              ".cloud.\":\"يجب أن يكون المُعرِّف بالصيغة com-<name>.kotoba.cloud.\",\"How verification works\":\"كيف يعمل التحقق\",\"Identit",
+              "ت ضوابط الأمان.\",\"Handle must look like com-<name>.kotoba.cloud.\":\"الهاندل خاصو يكون بشكل com-<name>.kotoba.cloud.\",\"",
+              ".kotoba.cloud.\":\"الهاندل خاصو يكون بشكل com-<name>.kotoba.cloud.\",\"How verification works\":\"كيفاش كيخدم التحقق\",\"Iden",
+              "وابط الأمان\\\\\".\",\"Handle must look like com-<name>.kotoba.cloud.\":\"الـ Handle لازم يكون بالشكل com-<name>.kotoba.clou"
+            ]
+          },
+          "kc_pat_": {
+            "count": 40,
+            "snippets": [
+              "pi.mithril.fund/v1 and KOTOBA_API_TOKEN=kc_pat_… (token shown once after issue).\":\"للعملاء المتوافقين مع Op",
+              "/api.mithril.fund/v1 و KOTOBA_API_TOKEN=kc_pat_… (يُعرض الرمز مرة واحدة فقط بعد الإصدار).\",\"Free allowance\"",
+              "pi.mithril.fund/v1 and KOTOBA_API_TOKEN=kc_pat_… (token shown once after issue).\":\"للعملاء المتوافقين مع Op",
+              "/api.mithril.fund/v1 و KOTOBA_API_TOKEN=kc_pat_… (التوكن كيبان مرة وحدة بعد الإصدار).\",\"Free allowance\":\"ال",
+              "pi.mithril.fund/v1 and KOTOBA_API_TOKEN=kc_pat_… (token shown once after issue).\":\"للعملاء المتوافقين مع Op"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "host": "https://auth.mithril.fund/sign-in",
+    "html_matches": null,
+    "asset_hits": []
+  },
+  {
+    "host": "https://app.mithril.fund/",
+    "html_matches": null,
+    "asset_hits": [
+      {
+        "asset": "https://app.mithril.fund/spa/assets/index-C_aAdWR3.js",
+        "matches": {
+          "kotoba\\.cloud": {
+            "count": 8,
+            "snippets": [
+              "support:`support@mithril.fund`},schema:`kotoba.cloud/grc-program-v1`,measuredAt:`2026-09-25`,counts:{catalog:17,",
+              "ttps://mithril.fund/privacy and https://kotoba.cloud/privacy -> 404; the mithril.fund landing page links /legal/",
+              "6-09-25: GET /terms on mithril.fund and kotoba.cloud -> 404; an acceptable-use page exists (console.mithril.fund",
+              "-known/security.txt on mithril.fund and kotoba.cloud -> 404; rendered from :security-txt and served by the app-k",
+              "rocessor-list\":`2026-09-25: GET https://kotoba.cloud/subprocessors -> 404`,dpa:`2026-09-25: GET https://kotoba.c"
+            ]
+          },
+          "app-kotoba-cloud": {
+            "count": 11,
+            "snippets": [
+              "ba-cloud-control-plane\\`（\\`cloud-kotoba/app-kotoba-cloud\\`）と Worker \\`mithril-fund\\`（\\`cloud-kotoba/app-mithril\\`）の ",
+              "l` を残す決定は履歴であり、現在の作業先ではない。`cloud-kotoba/app-kotoba-cloud` は今回の削除対象に含めていない。確認と復元用記録: [retirement report](../ops/archi",
+              "otoba/app-mithril`、移転済み）と `cloud-kotoba/app-kotoba-cloud` は archive しない。いずれ active に戻す前提で残す。新規 feature の prefer 先は `",
+              " - 意図的に GitHub org `cloud-kotoba` に残す: `app-kotoba-cloud`（live CLJK 制御面）。archive せず、ローカルでは並べて参照・移植元にする（ADR 0005 / AD",
+              " 0001 ほか）。 - 旧 CLJK 制御面は \\`cloud-kotoba/app-kotoba-cloud\\`（および関連 Worker）で **本番稼働中**。 - \\`app-mithril\\` は既に \\`mithril"
+            ]
+          },
+          "itonami": {
+            "count": 1,
+            "snippets": [
+              "n the same IP cluster.`,ja:`源データ: cloud-itonami/yabai の調査記録（content/entity・content/evidence・content/post）。掲"
+            ]
+          },
+          "kc_pat_": {
+            "count": 1,
+            "snippets": [
+              "VATE KEY-----|\\b(?:mf_[A-Za-z0-9_-]{43}|kc_pat_[A-Za-z0-9_-]+|sk-[A-Za-z0-9_-]{16,})\\b|\\bBearer\\s+[A-Za-z0-"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "host": "https://knowledge.mithril.fund/",
+    "html_matches": null,
+    "asset_hits": [
+      {
+        "asset": "https://knowledge.mithril.fund/assets/index-CDxaILV7.js",
+        "matches": {
+          "kotoba\\.cloud": {
+            "count": 8,
+            "snippets": [
+              "support:`support@mithril.fund`},schema:`kotoba.cloud/grc-program-v1`,measuredAt:`2026-09-25`,counts:{catalog:17,",
+              "ttps://mithril.fund/privacy and https://kotoba.cloud/privacy -> 404; the mithril.fund landing page links /legal/",
+              "6-09-25: GET /terms on mithril.fund and kotoba.cloud -> 404; an acceptable-use page exists (console.mithril.fund",
+              "-known/security.txt on mithril.fund and kotoba.cloud -> 404; rendered from :security-txt and served by the app-k",
+              "rocessor-list\":`2026-09-25: GET https://kotoba.cloud/subprocessors -> 404`,dpa:`2026-09-25: GET https://kotoba.c"
+            ]
+          },
+          "app-kotoba-cloud": {
+            "count": 10,
+            "snippets": [
+              "ba-cloud-control-plane\\`（\\`cloud-kotoba/app-kotoba-cloud\\`）と Worker \\`mithril-fund\\`（\\`cloud-kotoba/app-mithril\\`）の ",
+              "otoba/app-mithril`、移転済み）と `cloud-kotoba/app-kotoba-cloud` は archive しない。いずれ active に戻す前提で残す。新規 feature の prefer 先は `",
+              " - 意図的に GitHub org `cloud-kotoba` に残す: `app-kotoba-cloud`（live CLJK 制御面）。archive せず、ローカルでは並べて参照・移植元にする（ADR 0005 / AD",
+              " 0001 ほか）。 - 旧 CLJK 制御面は \\`cloud-kotoba/app-kotoba-cloud\\`（および関連 Worker）で **本番稼働中**。 - \\`app-mithril\\` は既に \\`mithril",
+              "soft-archive のみ**      - \\`cloud-kotoba/app-kotoba-cloud\\` および稼働中の CLJK / Worker は **削除・archive flag・配信停止しない**。     "
+            ]
+          },
+          "itonami": {
+            "count": 1,
+            "snippets": [
+              "n the same IP cluster.`,ja:`源データ: cloud-itonami/yabai の調査記録（content/entity・content/evidence・content/post）。掲"
+            ]
+          }
+        }
+      }
+    ]
+  },
+  {
+    "host": "https://code.mithril.fund/",
+    "html_matches": null,
+    "asset_hits": [
+      {
+        "asset": "https://code.mithril.fund/workspace.js",
+        "matches": {
+          "kc_pat_": {
+            "count": 1,
+            "snippets": [
+              "VATE KEY-----|\\b(?:mf_[A-Za-z0-9_-]{43}|kc_pat_[A-Za-z0-9_-]+|sk-[A-Za-z0-9_-]{16,})\\b|\\bBearer\\s+[A-Za-z0-"
+            ]
+          }
+        }
+      }
+    ]
+  }
+]
