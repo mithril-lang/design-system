@@ -1,0 +1,21 @@
+.mithril-public-navigation > ul { display:flex; flex-wrap:wrap; align-items:center; gap:4px; }
+.mithril-public-navigation ul { list-style:none; padding:0; margin:0; }
+.mithril-public-navigation > ul > li { position:relative; }
+.mithril-public-navigation summary, .mithril-public-navigation a { color:var(--text-primary); border-radius:8px; text-decoration:none; }
+.mithril-public-navigation summary, .mithril-public-navigation > ul > li > a { display:flex; align-items:center; gap:8px; padding:10px 12px; cursor:pointer; font-weight:500; }
+.mithril-public-navigation summary { list-style:none; }
+.mithril-public-navigation summary::-webkit-details-marker { display:none; }
+.mithril-public-navigation summary:hover, .mithril-public-navigation a:hover { background:var(--bg-hover); }
+.mithril-public-navigation summary:focus-visible, .mithril-public-navigation a:focus-visible { outline:2px solid var(--accent-text); outline-offset:2px; }
+.mithril-public-navigation details[open] > summary { background:var(--accent-subtle); }
+.mithril-public-navigation details[open] .mithril-public-navigation-chevron { transform:rotate(180deg); }
+.mithril-public-navigation-panel { position:absolute; inset-block-start:calc(100% + 8px); inset-inline-start:0; z-index:30; width:340px; max-width:calc(100vw - 32px); padding:8px !important; border:1px solid var(--border-bright); border-radius:12px; background:var(--bg-primary); box-shadow:0 12px 32px rgb(0 0 0 / 12%); }
+.mithril-public-navigation-panel a { display:block; padding:12px; }
+.mithril-public-navigation-label { display:block; font-weight:500; }
+.mithril-public-navigation-description { display:block; margin-block-start:4px; color:var(--text-secondary); font-size:0.8125rem; line-height:1.5; }
+@media (max-width: 48rem) {
+  .mithril-public-navigation > ul { align-items:stretch; }
+  .mithril-public-navigation > ul > li { width:100%; }
+  .mithril-public-navigation summary { justify-content:space-between; }
+  .mithril-public-navigation-panel { position:static; width:auto; max-width:none; margin-block:4px 8px !important; box-shadow:none; background:var(--bg-secondary); }
+}

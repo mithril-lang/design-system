@@ -9,6 +9,7 @@
     "dist/react"
   ],
   "exports": {
+    "./public-navigation.css": "./resources/public-navigation.css",
     "./mithril-mark.svg": {
       "types": "./resources/mithril-mark.d.ts",
       "default": "./resources/mithril-mark.svg"
