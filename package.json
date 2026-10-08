@@ -6,7 +6,8 @@
   "files": [
     "resources",
     "src/react",
-    "dist/react"
+    "dist/react",
+    "TYPOGRAPHY.md"
   ],
   "exports": {
     "./public-navigation.css": "./resources/public-navigation.css",
@@ -20,7 +21,9 @@
       "types": "./dist/react/index.d.ts",
       "import": "./dist/react/index.js"
     },
-    "./chat.css": "./resources/chat-surface.css"
+    "./chat.css": "./resources/chat-surface.css",
+    "./font-faces.css": "./resources/font-faces.css",
+    "./fonts/*": "./resources/fonts/*"
   },
   "peerDependencies": {
     "react": ">=19 <20",
