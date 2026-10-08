@@ -14,7 +14,7 @@ Import `resources/design-system.css`, then set a theme on an ancestor:
 
 Supported themes: `dark`, `light`, `dracula`, `nord`, `one-dark`, `github-dark`, `monokai`, `solarized-dark`, `gruvbox-dark`, `tokyo-night`, `github-light`, and `solarized-light`.
 
-Set `data-radius="none"` on the root element to square the four radius tokens. Typography uses the desktop's Cairo / Manrope system stack and numeric display uses Space Grotesk, with fallbacks when bundled fonts are unavailable.
+Set `data-radius="none"` on the root element to square the four radius tokens. Typography follows the document or content `lang` attribute using government-adopted fonts where publicly reusable, with bundled script fallbacks. See [TYPOGRAPHY.md](TYPOGRAPHY.md). Numeric display continues to use Space Grotesk.
 
 The Clojure/ClojureScript source of truth is `src/mithril/design_system/tokens.cljc`. `resources/design-system.css` is the browser-ready distribution. `themes` and `theme-css` expose the palettes and one-theme CSS; `stylesheet` emits the complete stylesheet.
 

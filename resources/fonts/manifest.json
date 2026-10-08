@@ -1,0 +1,73 @@
+[
+  {
+    "package": "@fontsource-variable/noto-sans",
+    "version": "5.3.0",
+    "tarball": "https://registry.npmjs.org/@fontsource-variable/noto-sans/-/noto-sans-5.3.0.tgz",
+    "sha256": "2cd97f3573b6e8ceaaa54ddf5df3f8e64d89a5bb31954013700d36a7ec01dcd6"
+  },
+  {
+    "package": "@fontsource-variable/noto-sans-jp",
+    "version": "5.3.0",
+    "tarball": "https://registry.npmjs.org/@fontsource-variable/noto-sans-jp/-/noto-sans-jp-5.3.0.tgz",
+    "sha256": "d50e5c0779b11a9af26b7fe3f9bd6e413321a1d720fb564940ae49dc58432414"
+  },
+  {
+    "package": "@fontsource-variable/noto-sans-sc",
+    "version": "5.3.0",
+    "tarball": "https://registry.npmjs.org/@fontsource-variable/noto-sans-sc/-/noto-sans-sc-5.3.0.tgz",
+    "sha256": "3191e5a03a66f62d46064d1eabb6749366a5f2a142c0c901c59c69425c4d2f20"
+  },
+  {
+    "package": "@fontsource-variable/noto-sans-tc",
+    "version": "5.3.0",
+    "tarball": "https://registry.npmjs.org/@fontsource-variable/noto-sans-tc/-/noto-sans-tc-5.3.0.tgz",
+    "sha256": "ac72ea3119ff8c5b157c38aeb0d2efa2116477ec92aea5b8c31afeb701b51a88"
+  },
+  {
+    "package": "@fontsource-variable/noto-sans-devanagari",
+    "version": "5.3.0",
+    "tarball": "https://registry.npmjs.org/@fontsource-variable/noto-sans-devanagari/-/noto-sans-devanagari-5.3.0.tgz",
+    "sha256": "b5e77b55d96a5918e559193773490a7a5dd0e512e6354c93103a058ff8996ac0"
+  },
+  {
+    "package": "@fontsource-variable/noto-sans-bengali",
+    "version": "5.3.0",
+    "tarball": "https://registry.npmjs.org/@fontsource-variable/noto-sans-bengali/-/noto-sans-bengali-5.3.0.tgz",
+    "sha256": "c5811f21f12e6ecfb076898a438f808ccbb56b64deaab0311952863d18e80558"
+  },
+  {
+    "package": "@fontsource-variable/noto-sans-arabic",
+    "version": "5.3.0",
+    "tarball": "https://registry.npmjs.org/@fontsource-variable/noto-sans-arabic/-/noto-sans-arabic-5.3.0.tgz",
+    "sha256": "b6c7b9001f81e4df07a4f2501ad1b710f8faf2ed0cccc753bd3162a358b08ce5"
+  },
+  {
+    "package": "@fontsource-variable/noto-sans-hebrew",
+    "version": "5.3.0",
+    "tarball": "https://registry.npmjs.org/@fontsource-variable/noto-sans-hebrew/-/noto-sans-hebrew-5.3.0.tgz",
+    "sha256": "85bb3375f5176f977bb84349d0e3160a59e4da389caf790e63f7c16257dfe6de"
+  },
+  {
+    "package": "@fontsource-variable/roboto",
+    "version": "5.3.0",
+    "tarball": "https://registry.npmjs.org/@fontsource-variable/roboto/-/roboto-5.3.0.tgz",
+    "sha256": "03510ae8a8159543ebef8d35280cf6821099ef3f61d31858458ac8bf1a8e983e"
+  },
+  {
+    "package": "@fontsource/titillium-web",
+    "version": "5.3.0",
+    "tarball": "https://registry.npmjs.org/@fontsource/titillium-web/-/titillium-web-5.3.0.tgz",
+    "sha256": "5fc8c4f850e693046d88a7a4a34236aaadae6713b79547cb5680ff3c2e08b45b"
+  },
+  {
+    "package": "pretendard-gov",
+    "version": "1.3.9",
+    "tarball": "https://registry.npmjs.org/pretendard-gov/-/pretendard-gov-1.3.9.tgz",
+    "sha256": "eed5dc88f4b699bf9543f5c3c77057370f3a541f85f46315b6f2485d2770716c"
+  },
+  {
+    "package": "Rawline",
+    "source": "https://www.gov.br/sri/pt-br/central-de-conteudo/manuais/enpp-manual/00-fonte-rawline.zip",
+    "sha256": "f28aa325e405a4ee61d02d9c0b12e5fc2d7d520b478cb21b4d447ef3ebad30e6"
+  }
+]

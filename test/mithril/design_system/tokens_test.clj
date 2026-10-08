@@ -14,3 +14,11 @@
 (deftest desktop-css-remains-generated
   (is (= (tokens/stylesheet)
          (slurp (io/file "resources/design-system.css")))))
+
+(deftest font-assets-survive-offline-packaging
+  (let [css (slurp "resources/font-faces.css")
+        urls (map second (re-seq #"url\(\"\./([^\"]+)\"\)" css))]
+    (is (seq urls))
+    (doseq [url urls]
+      (is (.isFile (io/file "resources" url)) (str "Missing bundled font: " url)))
+    (is (not (re-find #"url\(.*https?://" css)))))
