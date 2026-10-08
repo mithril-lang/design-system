@@ -415,7 +415,7 @@
    "--radius-xl" "20px"
    "--transition" "150ms ease"
    "--font-sans" "var(--font-locale)"
-   "--font-locale" "\"Noto Sans\", Arial, sans-serif"
+   "--font-locale" "var(--font-country, \"Noto Sans\"), Arial, sans-serif"
    "--font-mono" "\"SF Mono\", \"Fira Code\", \"JetBrains Mono\", Menlo, Consolas, monospace"
    "--font-numeric" "\"Space Grotesk\", var(--font-sans)"})
 
