@@ -12,6 +12,12 @@
     "sha256": "d50e5c0779b11a9af26b7fe3f9bd6e413321a1d720fb564940ae49dc58432414"
   },
   {
+    "package": "@fontsource-variable/noto-sans-kr",
+    "version": "5.3.0",
+    "tarball": "https://registry.npmjs.org/@fontsource-variable/noto-sans-kr/-/noto-sans-kr-5.3.0.tgz",
+    "sha256": "088fa1e69e1e24f60fabd6702eb81e2a377939de9355f5d78547fdc6060cfb47"
+  },
+  {
     "package": "@fontsource-variable/noto-sans-sc",
     "version": "5.3.0",
     "tarball": "https://registry.npmjs.org/@fontsource-variable/noto-sans-sc/-/noto-sans-sc-5.3.0.tgz",
@@ -52,6 +58,12 @@
     "version": "5.3.0",
     "tarball": "https://registry.npmjs.org/@fontsource-variable/roboto/-/roboto-5.3.0.tgz",
     "sha256": "03510ae8a8159543ebef8d35280cf6821099ef3f61d31858458ac8bf1a8e983e"
+  },
+  {
+    "package": "@fontsource-variable/public-sans",
+    "version": "5.3.0",
+    "tarball": "https://registry.npmjs.org/@fontsource-variable/public-sans/-/public-sans-5.3.0.tgz",
+    "sha256": "bf6187114c40190dab8a429eb90ddc44c0ef0b731ec3ea868cecea1d7f9179bd"
   },
   {
     "package": "@fontsource/titillium-web",

@@ -15,6 +15,7 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
+      - run: npm run test:locale
       - run: npm run typecheck
       - run: npm run test:react
       - run: npm run build:react

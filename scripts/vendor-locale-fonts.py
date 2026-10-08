@@ -3,19 +3,27 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 import hashlib, io, json, re, tarfile, urllib.request
 
+def fetch(url):
+    for attempt in range(3):
+        try:
+            return urllib.request.urlopen(url, timeout=30).read()
+        except (TimeoutError, OSError):
+            if attempt == 2: raise
+
+
 ROOT = Path(__file__).resolve().parents[1]
 FONTS = ROOT / 'resources/fonts'
-PACKAGES = ['noto-sans', 'noto-sans-jp', 'noto-sans-sc', 'noto-sans-tc',
+PACKAGES = ['noto-sans', 'noto-sans-jp', 'noto-sans-kr', 'noto-sans-sc', 'noto-sans-tc',
             'noto-sans-devanagari', 'noto-sans-bengali', 'noto-sans-arabic',
-            'noto-sans-hebrew', 'roboto']
+            'noto-sans-hebrew', 'roboto', 'public-sans']
 SPECS = [(f'@fontsource-variable/{name}', '5.3.0', 'package/index.css', 'package/LICENSE') for name in PACKAGES]
 SPECS += [('@fontsource/titillium-web', '5.3.0', 'package/400.css', 'package/LICENSE'),
           ('pretendard-gov', '1.3.9', 'package/dist/web/variable/pretendardvariable-gov-dynamic-subset.css', 'package/dist/LICENSE.txt')]
 
 def download(spec):
     name, version, css_path, license_path = spec
-    metadata = json.load(urllib.request.urlopen(f'https://registry.npmjs.org/{name}/{version}'))
-    data = urllib.request.urlopen(metadata['dist']['tarball']).read()
+    metadata = json.loads(fetch(f'https://registry.npmjs.org/{name}/{version}'))
+    data = fetch(metadata['dist']['tarball'])
     assert hashlib.sha1(data).hexdigest() == metadata['dist']['shasum']
     archive = tarfile.open(fileobj=io.BytesIO(data), mode='r:gz')
     family = name.split('/')[-1]
@@ -46,11 +54,11 @@ print('Vendored', len(results), 'families,', len(list(FONTS.rglob('*.woff2'))), 
 # Brazil publishes Rawline directly; its embedded name table declares OFL 1.1.
 import zipfile
 url = 'https://www.gov.br/sri/pt-br/central-de-conteudo/manuais/enpp-manual/00-fonte-rawline.zip'
-data = urllib.request.urlopen(url).read()
+data = fetch(url)
 archive = zipfile.ZipFile(io.BytesIO(data))
 folder = FONTS / 'rawline'
 folder.mkdir(exist_ok=True)
-license_text = urllib.request.urlopen('https://raw.githubusercontent.com/google/fonts/main/ofl/raleway/OFL.txt').read()
+license_text = fetch('https://raw.githubusercontent.com/google/fonts/main/ofl/raleway/OFL.txt')
 (folder / 'LICENSE').write_bytes(license_text)
 for weight in [400, 500, 600, 700]:
     for suffix, style in [('', 'normal'), ('i', 'italic')]:

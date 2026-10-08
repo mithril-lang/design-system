@@ -2,24 +2,24 @@
   "Government-adopted public fonts and explicit script fallbacks. See TYPOGRAPHY.md."
   (:require [clojure.string :as str]))
 
-;; Specific BCP 47 tags follow their base language so regional choices win.
+;; Language only determines glyph coverage. Country is independent of UI language.
 (def locale-families
   [["ar" "Noto Sans Arabic"]
    ["bn" "Noto Sans Bengali"]
    ["de" "Noto Sans"]
-   ["en" "Roboto"]
+   ["en" "Noto Sans"]
    ["es" "Noto Sans"]
-   ["fr" "Arial"]
+   ["fr" "Noto Sans"]
    ["he" "Noto Sans Hebrew"]
    ["hi" "Noto Sans Devanagari"]
    ["id" "Noto Sans"]
-   ["it" "Titillium Web"]
+   ["it" "Noto Sans"]
    ["ja" "Noto Sans JP"]
    ["jv" "Noto Sans"]
-   ["ko" "Pretendard GOV"]
+   ["ko" "Noto Sans KR"]
    ["mr" "Noto Sans Devanagari"]
    ["pl" "Noto Sans"]
-   ["pt" "Rawline"]
+   ["pt" "Noto Sans"]
    ["ru" "Noto Sans"]
    ["su" "Noto Sans"]
    ["tr" "Noto Sans"]
@@ -28,7 +28,6 @@
    ["arz" "Noto Sans Arabic"]
    ["pcm" "Noto Sans"]
    ["ar-MA" "Noto Sans Arabic"]
-   ["pt-BR" "Rawline"]
    ["pt-PT" "Noto Sans"]
    ["zh-CN" "Noto Sans SC"]
    ["zh-HK" "Noto Sans TC"]
@@ -37,13 +36,24 @@
    ["zh-Hans" "Noto Sans SC"]
    ["zh-Hant" "Noto Sans TC"]])
 
+(def country-families
+  [["JP" "Noto Sans JP"] ["KR" "Pretendard GOV"]
+   ["IT" "Titillium Web"] ["BR" "Rawline"]
+   ["US" "Public Sans"] ["GB" "Arial"] ["FR" "Arial"]
+   ["IN" "Noto Sans"]])
+
 (defn locale-css
-  "Scoped Web rules or Desktop rules; :lang also matches regional tags and inherited language."
+  "Visitor country selects the primary face; content language supplies script fallback."
   [scope]
-  (str/join "\n"
-    (map (fn [[locale family]]
-           (str (if (empty? scope) ":where([lang])" scope)
-                ":lang(" locale ") {\n  --font-sans: var(--font-locale);\n  --font-locale: \"" family "\", \"Noto Sans\", Arial, sans-serif;\n}"
-                (when (empty? scope)
-                  (str "\n:where([lang]):lang(" locale ") { font-family: var(--font-sans); }"))))
-         locale-families)))
+  (str
+    (str/join "\n"
+      (map (fn [[country family]]
+             (str (if (empty? scope) ":root" (str ":where([data-font-country=\"" country "\"]) " scope ", " scope)) "[data-font-country=\"" country "\"] { --font-country: \"" family "\"; }"))
+           country-families)) "\n"
+    (str/join "\n"
+      (map (fn [[locale family]]
+             (str (if (empty? scope) ":where([lang])" scope)
+                  ":lang(" locale ") {\n  --font-sans: var(--font-locale);\n  --font-locale: var(--font-country, \"" family "\"), \"" family "\", \"Noto Sans\", Arial, sans-serif;\n}"
+                  (when (empty? scope)
+                    (str "\n:where([lang]):lang(" locale ") { font-family: var(--font-sans); }"))))
+           locale-families))))

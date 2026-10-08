@@ -23,7 +23,11 @@
     },
     "./chat.css": "./resources/chat-surface.css",
     "./font-faces.css": "./resources/font-faces.css",
-    "./fonts/*": "./resources/fonts/*"
+    "./fonts/*": "./resources/fonts/*",
+    "./visitor-locale": {
+      "types": "./resources/visitor-locale.d.ts",
+      "default": "./resources/visitor-locale.js"
+    }
   },
   "peerDependencies": {
     "react": ">=19 <20",
@@ -38,7 +42,8 @@
   "scripts": {
     "test:react": "vitest run",
     "typecheck": "tsc --noEmit",
-    "build:react": "tsc -p tsconfig.build.json"
+    "build:react": "tsc -p tsconfig.build.json",
+    "test:locale": "node --test test/visitor-locale.check.mjs"
   },
   "devDependencies": {
     "@types/react": "^19.2.7",
