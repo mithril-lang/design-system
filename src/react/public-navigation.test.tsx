@@ -13,7 +13,7 @@ it("closes with Escape and restores focus, closes on outside interaction and lin
  const details=view.container.querySelector('details')!; const summary=details.querySelector('summary')!;
  details.open=true; fireEvent.keyDown(summary,{key:'Escape'}); expect(details.open).toBe(false); expect(document.activeElement).toBe(summary);
  details.open=true; fireEvent.pointerDown(document.body); expect(details.open).toBe(false);
- details.open=true; fireEvent.click(screen.getByRole('link',{name:'Knowledge Source-linked data'})); expect(details.open).toBe(false);
+ details.open=true; const destination=screen.getByRole('link',{name:'Knowledge Source-linked data'}); destination.addEventListener('click',event=>event.preventDefault()); fireEvent.click(destination); expect(details.open).toBe(false);
  expect(screen.getByRole('link',{name:'Pricing'}).getAttribute('href')).toBe('/pricing');
 });
 it("allows the consumer to own routing while retaining the shared disclosure", () => {
