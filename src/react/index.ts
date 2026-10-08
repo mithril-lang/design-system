@@ -2,5 +2,6 @@ export { AgentMarkdown, type AgentMarkdownProps, type MarkdownPlatform } from ".
 export { ChatTextarea, type ChatTextareaProps } from "./ChatTextarea.js";
 export { ChatSubmitButton, type ChatSubmitButtonProps } from "./ChatSubmitButton.js";
 export { ChatBubble, type ChatBubbleProps } from "./ChatBubble.js";
+export { PublicNavigation, type PublicNavigationProps, type PublicNavigationItem, type PublicNavigationLink } from "./PublicNavigation.js";
 
 export { ChatComposer, ChatTabs, ToolActivity, ChatWelcome, WorkspaceNavigation, ChatSurface, type ChatComposerProps, type ChatTab, type ChatTabsProps, type ChatSuggestion, type WorkspaceNavigationItem } from "./ChatSurface.js";
